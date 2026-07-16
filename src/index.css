@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #C75B12;
+  --color-primary-dark: #A34A0F;
+  --color-primary-light: #E87A2E;
+  --color-charcoal: #1A1A2E;
+  --color-charcoal-light: #2D2D44;
+  --color-navy: #0A1628;
+  --color-navy-light: #162240;
+  --color-gold: #D4A853;
+  --color-gold-light: #E8C878;
+  --color-surface: #F8F9FA;
+  --color-surface-dark: #E9ECEF;
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-family-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, #C75B12 0%, #E87A2E 50%, #D4A853 100%);
+  }
+
+  .gradient-dark {
+    background: linear-gradient(135deg, #0A1628 0%, #1A1A2E 50%, #162240 100%);
+  }
+
+  .gradient-glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .gradient-glass-dark {
+    background: rgba(10, 22, 40, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #E87A2E, #F09040, #F0C060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-navy {
+    background: linear-gradient(135deg, #1A1A2E, #0A1628);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out 2s infinite;
+  }
+
+  .animate-float-slow {
+    animation: float 8s ease-in-out 1s infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(199, 91, 18, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(199, 91, 18, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
