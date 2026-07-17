@@ -37,6 +37,7 @@ export default function TrustedBy() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="text-center text-sm font-medium text-white uppercase tracking-widest mb-10"
+            style={{ textShadow: '0 2px 12px rgba(0,0,0,0.6)' }}
           >
             Trusted by Industry Leaders Worldwide
           </motion.p>
@@ -55,7 +56,7 @@ export default function TrustedBy() {
                 <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center">
                   <partner.icon className="w-7 h-7 text-white" />
                 </div>
-                <span className="text-xs font-semibold text-white text-center">
+                <span className="text-xs font-semibold text-white text-center" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}>
                   {partner.name}
                 </span>
               </motion.div>
