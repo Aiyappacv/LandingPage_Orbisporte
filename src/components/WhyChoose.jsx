@@ -78,7 +78,7 @@ export default function WhyChoose() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2">
             Why Choose <span className="text-gradient">OrbisPorté</span>
           </h2>
-          <p className="text-white/95 max-w-2xl mx-auto text-lg">
+          <p className="text-white max-w-2xl mx-auto text-lg font-semibold" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.5)' }}>
             Measurable impact on your trade operations
           </p>
         </motion.div>
