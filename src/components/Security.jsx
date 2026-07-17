@@ -22,8 +22,22 @@ const securityFeatures = [
 
 export default function Security() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-white relative overflow-hidden">
+      {/* Large animated background blobs */}
+      <motion.div
+        className="absolute top-10 left-10 w-[500px] h-[500px] rounded-full blur-3xl"
+        style={{ background: 'radial-gradient(circle, rgba(239,68,68,0.12) 0%, transparent 70%)' }}
+        animate={{ scale: [1, 1.2, 1], x: [0, 30, 0], y: [0, -20, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="absolute bottom-10 right-10 w-[400px] h-[400px] rounded-full blur-3xl"
+        style={{ background: 'radial-gradient(circle, rgba(239,68,68,0.1) 0%, transparent 70%)' }}
+        animate={{ scale: [1, 1.3, 1], x: [0, -20, 0], y: [0, 30, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Visual */}
           <motion.div
@@ -33,14 +47,28 @@ export default function Security() {
             className="relative"
           >
             <div className="relative w-full aspect-square max-w-lg mx-auto">
-              {/* Shield */}
+              {/* Shield with glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <motion.div
-                  className="w-40 h-48"
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity }}
+                  className="w-40 h-48 relative"
+                  animate={{ y: [0, -12, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                 >
-                  <Shield className="w-full h-full text-primary/20" />
+                  {/* Shield glow backdrop */}
+                  <div className="absolute inset-0 blur-2xl opacity-40">
+                    <Shield className="w-full h-full text-primary" />
+                  </div>
+                  <Shield className="w-full h-full text-primary/30 relative z-10" />
+
+                  {/* Pulse rings - more visible */}
+                  {[0, 0.7, 1.4].map((delay, idx) => (
+                    <motion.div
+                      key={idx}
+                      className="absolute inset-0 border-2 border-red-400/40 rounded-full"
+                      animate={{ scale: [1, 2], opacity: [0.6, 0] }}
+                      transition={{ duration: 2.5, repeat: Infinity, delay, ease: 'easeOut' }}
+                    />
+                  ))}
                 </motion.div>
               </div>
 
@@ -54,7 +82,7 @@ export default function Security() {
                 return (
                   <motion.div
                     key={feat.title}
-                    className="absolute w-12 h-12 rounded-xl bg-white shadow-lg border border-gray-100 flex items-center justify-center"
+                    className="absolute w-14 h-14 rounded-xl bg-white shadow-xl border-2 border-primary/20 flex items-center justify-center cursor-pointer"
                     style={{
                       left: `${xPos}%`,
                       top: `${yPos}%`,
@@ -63,16 +91,34 @@ export default function Security() {
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 + i * 0.08 }}
-                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+                    whileHover={{ scale: 1.3, boxShadow: '0 0 30px rgba(239,68,68,0.3)' }}
                   >
-                    <feat.icon className="w-5 h-5 text-primary" />
+                    <feat.icon className="w-6 h-6 text-primary" />
                   </motion.div>
                 );
               })}
 
-              {/* Glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-primary/5 rounded-full blur-3xl" />
+              {/* Central glow */}
+              <motion.div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-primary/10 rounded-full blur-3xl"
+                animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              />
+
+              {/* Scanning line effect */}
+              <motion.div
+                className="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500/50 to-transparent rounded-full"
+                animate={{ top: ['0%', '100%'] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
+              />
+
+              {/* Second scanning line offset */}
+              <motion.div
+                className="absolute left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-red-400/30 to-transparent"
+                animate={{ top: ['100%', '0%'] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: 'linear' }}
+              />
             </div>
           </motion.div>
 
@@ -102,13 +148,18 @@ export default function Security() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="flex items-start gap-3 p-4 rounded-xl hover:bg-surface transition-colors"
+                  whileHover={{ scale: 1.03, boxShadow: '0 8px 30px rgba(239,68,68,0.12)' }}
+                  className="group flex items-start gap-3 p-4 rounded-xl border border-gray-100 hover:border-primary/20 transition-all duration-300"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <feat.icon className="w-5 h-5 text-primary" />
-                  </div>
+                  <motion.div
+                    className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-300"
+                    whileHover={{ rotate: [0, -10, 10, 0] }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <feat.icon className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" />
+                  </motion.div>
                   <div>
-                    <h4 className="font-semibold text-charcoal text-sm">{feat.title}</h4>
+                    <h4 className="font-semibold text-charcoal text-sm group-hover:text-primary transition-colors duration-300">{feat.title}</h4>
                     <p className="text-xs text-gray-400 mt-0.5">{feat.desc}</p>
                   </div>
                 </motion.div>
