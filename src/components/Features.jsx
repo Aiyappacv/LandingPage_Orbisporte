@@ -11,6 +11,10 @@ import {
   Scale,
   CheckCircle,
   Workflow,
+  ShieldAlert,
+  Leaf,
+  Clock,
+  Link,
 } from 'lucide-react';
 
 const features = [
@@ -22,7 +26,7 @@ const features = [
   },
   {
     icon: ScanLine,
-    title: 'OCR + Intelligent Extraction',
+    title: 'Multimodal extraction',
     description: 'Advanced optical character recognition with contextual understanding.',
     color: 'from-blue-500 to-blue-600',
   },
@@ -51,16 +55,22 @@ const features = [
     color: 'from-rose-500 to-rose-600',
   },
   {
+    icon: ShieldAlert,
+    title: 'Trade Fraud Detection',
+    description: 'AI-powered detection of fraudulent trade activities and suspicious patterns.',
+    color: 'from-red-600 to-red-700',
+  },
+  {
+    icon: AlertTriangle,
+    title: 'Risk Scoring',
+    description: 'AI-powered risk assessment and anomaly detection in trade transactions.',
+    color: 'from-red-500 to-red-600',
+  },
+  {
     icon: Scale,
     title: 'Trade Compliance',
     description: 'Comprehensive compliance checks against global trade regulations.',
     color: 'from-teal-500 to-teal-600',
-  },
-  {
-    icon: AlertTriangle,
-    title: 'Risk Detection',
-    description: 'AI-powered risk assessment and anomaly detection in trade transactions.',
-    color: 'from-red-500 to-red-600',
   },
   {
     icon: Brain,
@@ -69,22 +79,28 @@ const features = [
     color: 'from-indigo-500 to-indigo-600',
   },
   {
-    icon: Scale,
-    title: 'Regulatory Intelligence',
-    description: 'Real-time updates on global trade regulations and policy changes.',
-    color: 'from-cyan-500 to-cyan-600',
-  },
-  {
-    icon: CheckCircle,
-    title: 'Document Validation',
-    description: 'Automated document verification and completeness checks.',
+    icon: Leaf,
+    title: 'ESG (Environmental, Social, and Governance)',
+    description: 'Track and improve your environmental, social, and governance impact in trade.',
     color: 'from-green-500 to-green-600',
   },
   {
-    icon: Workflow,
-    title: 'Workflow Automation',
-    description: 'Customizable workflows for trade document processing pipelines.',
-    color: 'from-orange-500 to-orange-600',
+    icon: Clock,
+    title: 'ETA/JIT Arrival',
+    description: 'Predict arrival times and fuel consumption in real-time.',
+    color: 'from-green-500 to-green-600',
+  },
+  {
+    icon: Leaf,
+    title: 'Carbon Emission Tracking',
+    description: 'Monitor, measure, and reduce your carbon footprint across supply chains.',
+    color: 'from-emerald-500 to-emerald-600',
+  },
+  {
+    icon: Link,
+    title: 'Third Party-Integration',
+    description: 'Seamless integration with external platforms.',
+    color: 'from-indigo-500 to-indigo-600',
   },
 ];
 

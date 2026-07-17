@@ -13,11 +13,12 @@ import {
   Package,
   Clock,
   BrainCircuit,
+  Leaf,
 } from 'lucide-react';
 
 const topSteps = [
   { icon: Upload, label: 'Document Upload', desc: 'Upload trade documents via API or portal' },
-  { icon: ScanLine, label: 'OCR Extraction', desc: 'AI extracts text and key fields' },
+  { icon: ScanLine, label: 'Multi-Modal Extraction', desc: 'AI extracts text, images, and key fields' },
   { icon: CheckCircle, label: 'AI Validation', desc: 'Validate extracted data accuracy' },
   { icon: Tag, label: 'HSN Classification', desc: 'Auto-classify products with AI' },
   { icon: Calculator, label: 'Duty Calculation', desc: 'Calculate duties and tariffs' },
@@ -28,8 +29,9 @@ const bottomSteps = [
   { icon: AlertTriangle, label: 'Trade Fraud Engine', desc: 'Detect anomalies and suspicious patterns' },
   { icon: Building2, label: 'Risk Scoring', desc: 'Evaluate compliance risk in real-time' },
   { icon: Clock, label: 'ETA / JIT Arrival', desc: 'Predict arrival, fuel & carbon emission' },
+  { icon: Leaf, label: 'Carbon Emission Tracking', desc: 'Monitor & reduce your carbon footprint' },
   { icon: ShieldCheck, label: 'Compliance Check', desc: 'Verify regulatory compliance end-to-end' },
-  { icon: Send, label: 'Submission - ICEGATE', desc: 'Submit documents to customs via ICEGATE' },
+  { icon: Send, label: 'Third Party-Integration', desc: 'Seamless integration with external platforms' },
   { icon: Package, label: 'Shipment Tracking', desc: 'Real-time tracking of shipments' },
   { icon: BrainCircuit, label: 'Intelligent Information Management', desc: 'AI-driven document insights & data governance' },
 ];
@@ -102,7 +104,7 @@ export default function Workflow() {
           {/* Row 2 — Steps 7–13 */}
           <div className="relative">
             <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20 -translate-y-1/2" />
-            <div className="grid grid-cols-7 gap-4 relative">
+            <div className="grid grid-cols-8 gap-4 relative">
               {bottomSteps.map((step, i) => (
                 <motion.div
                   key={step.label}
