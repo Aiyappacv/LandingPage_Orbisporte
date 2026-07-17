@@ -19,7 +19,7 @@ const partners = [
 
 export default function TrustedBy() {
   return (
-    <section className="relative py-28 border-y border-gray-100 overflow-hidden">
+    <section className="relative py-36 border-y border-gray-100 overflow-hidden">
       {/* Background Image - full section cover */}
       <img
         src="/1stnew.png"

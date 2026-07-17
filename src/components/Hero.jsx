@@ -63,13 +63,12 @@ export default function Hero() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/70 mb-6">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                Next-Gen Trade Intelligence Platform
+                Next-Generation Trade Intelligence Ecosystem
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
                 AI-Powered{' '}
-                <span className="text-gradient">Global Trade</span>
-                <br />
-                Automation
+                <span className="whitespace-nowrap">Global Trade and Customs</span>{' '}
+                <span className="text-gradient">Automation Platform</span>
               </h1>
             </motion.div>
 
